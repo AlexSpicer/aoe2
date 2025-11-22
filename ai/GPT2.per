@@ -1,0 +1,121 @@
+; ====================
+; Difficulty Settings
+; ====================
+; Easiest
+(defrule
+    (difficulty-level == 1)
+=>
+    (chat-to-all "Playing on Easiest. I'll take it slow.")
+    (set-strategic-number sn-minimum-harvesters 20)
+    (set-strategic-number sn-percent-civilian-builders 50)
+    (set-strategic-number sn-maximum-attack-group-size 15)
+)
+
+; Easy
+(defrule
+    (difficulty-level == 2)
+=>
+    (chat-to-all "Playing on Easy. Let’s see how you handle this.")
+    (set-strategic-number sn-minimum-harvesters 25)
+    (set-strategic-number sn-percent-civilian-builders 40)
+    (set-strategic-number sn-maximum-attack-group-size 20)
+)
+
+; Moderate
+(defrule
+    (difficulty-level == 3)
+=>
+    (chat-to-all "Playing on Moderate. Prepare for a challenge!")
+    (set-strategic-number sn-minimum-harvesters 30)
+    (set-strategic-number sn-percent-civilian-builders 30)
+    (set-strategic-number sn-maximum-attack-group-size 30)
+)
+
+; Hard
+(defrule
+    (difficulty-level == 4)
+=>
+    (chat-to-all "Playing on Hard. Let’s fight!")
+    (set-strategic-number sn-minimum-harvesters 35)
+    (set-strategic-number sn-percent-civilian-builders 20)
+    (set-strategic-number sn-maximum-attack-group-size 40)
+)
+
+; Hardest
+(defrule
+    (difficulty-level == 5)
+=>
+    (chat-to-all "Playing on Hardest. You won’t survive!")
+    (set-strategic-number sn-minimum-harvesters 40)
+    (set-strategic-number sn-percent-civilian-builders 15)
+    (set-strategic-number sn-maximum-attack-group-size 50)
+)
+
+; ====================
+; Shared Rules for All Difficulties
+; ====================
+(defrule
+    (can-train villager)
+    (population < 100)
+=>
+    (train villager)
+)
+
+(defrule
+    (building-type-count <barracks> < 1)
+    (can-build barracks)
+=>
+    (build barracks)
+)
+
+(defrule
+    (can-train militia)
+    (population < 100)
+    (food-amount > 60)
+    (gold-amount > 20)
+=>
+    (train militia)
+)
+
+(defrule
+    (population >= 50)
+    (enemy-building-exists)
+=>
+    (attack-now)
+)
+
+; ====================
+; Adjust Aggression by Difficulty
+; ====================
+; Easier AIs attack slower and with smaller forces
+(defrule
+    (difficulty-level <= 2)
+    (population >= 50)
+    (game-time >= 1200) ; Delayed attack
+=>
+    (attack-now)
+)
+
+; Harder AIs attack earlier and more frequently
+(defrule
+    (difficulty-level >= 4)
+    (population >= 50)
+    (game-time >= 600) ; Earlier attack
+=>
+    (attack-now)
+)
+
+; ====================
+; Victory and Loss Messages
+; ====================
+(defrule
+    (enemy-dead)
+=>
+    (chat-to-all "Victory is mine!")
+)
+
+(defrule
+    (my-dead)
+=>
+    (chat-to-all "You got lucky this time...")
+)

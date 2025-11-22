@@ -1,0 +1,53 @@
+
+	(defconst minNavy 4)
+	(defconst max-fleet 25)
+	(defconst twenty-five-percent-pop 13)
+	(defconst thirty-percent-pop 15)
+	(defconst fourty-percent-pop 20)
+	(defconst fifty-percent-pop 25)
+	(defconst sixty-percent-pop 30)
+	(defconst seventy-five-percent-pop 38)
+	(defconst eighty-five-percent-pop 42)
+	#load-if-defined DIFFICULTY-EASIEST
+		(defconst max-trade-pop 1)
+		(defconst max-civ 6)
+	#end-if
+	#load-if-defined DIFFICULTY-EASY
+		(defconst max-trade-pop 2)
+		(defconst max-civ 10)
+	#end-if
+	#load-if-defined DIFFICULTY-MODERATE
+		(defconst max-trade-pop 3)
+		(defconst max-civ 16)
+	#end-if
+	#load-if-defined DIFFICULTY-HARD
+		(defconst max-trade-pop 4)
+		(defconst max-civ 22)
+	#end-if
+	#load-if-defined DIFFICULTY-HARDEST
+		(defconst max-trade-pop 5)
+		(defconst max-civ 28)
+	#end-if
+	#load-if-defined DIFFICULTY-EXTREME
+		(defconst max-trade-pop 5)
+		(defconst max-civ 28)
+	#end-if
+	(defconst max-civ-pop 45)
+	(defconst del-civ-pop 48)
+	(defconst max-pop 50)
+	#load-if-not-defined SUDDEN-DEATH
+		(defconst tc-level-one 1)
+		(defconst tc-level-two 1)
+		(defconst tc-level-three 1)
+		(defconst tc-level-four 2)
+		(defconst tc-level-five 2)
+	#else
+		(defconst tc-level-one 1)
+		(defconst tc-level-two 1)
+		(defconst tc-level-three 1)
+		(defconst tc-level-four 1)
+		(defconst tc-level-five 1)
+	#end-if
+	(defconst low-min-number-upgrade 1)
+	(defconst mid-min-number-upgrade 3)
+	(defconst high-min-number-upgrade 5)

@@ -1,0 +1,57 @@
+; *** Custom Declarations ***
+
+; Strategic numbers
+(defconst sn-my-player-number 211)
+
+; Flags
+(defconst flag-debugging yes)
+(defconst flag-cheats no)
+(defconst flag-navy yes)
+
+; Variables
+(defconst cheatTimerDelay 120)
+(defconst debugTimerDelay 120)
+
+(defconst cheat-wood-easy 300) 
+(defconst cheat-food-easy 300) 
+(defconst cheat-gold-easy 200) 
+(defconst cheat-stone-easy 200)
+
+(defconst cheat-wood-easiest 450) 
+(defconst cheat-food-easiest 450) 
+(defconst cheat-gold-easiest 350) 
+(defconst cheat-stone-easiest 350)
+
+(defconst cheat-wood-moderate 650) 
+(defconst cheat-food-moderate 650) 
+(defconst cheat-gold-moderate 550) 
+(defconst cheat-stone-moderate 550)
+
+(defconst cheat-wood-hard 900) 
+(defconst cheat-food-hard 900) 
+(defconst cheat-gold-hard 900) 
+(defconst cheat-stone-hard 900)
+
+(defconst cheat-wood-hardest 1300) 
+(defconst cheat-food-hardest 1300) 
+(defconst cheat-gold-hardest 1200) 
+(defconst cheat-stone-hardest 1200)
+
+(defconst cheat-wood-extreme 1600) 
+(defconst cheat-food-extreme 1600) 
+(defconst cheat-gold-extreme 1400) 
+(defconst cheat-stone-extreme 1400)
+
+; Timers
+(defconst timerCheatsID 35)
+(defconst timerDebugID 36)
+
+; Taunt Numbers
+(defconst tauntEnableCheats 160)
+(defconst tauntDisableCheats 170)
+(defconst tauntEnableNavy 152)
+(defconst tauntDisableNavy 153)
+(defconst tauntEnableDebugging 154)
+(defconst tauntDisableDebugging 155)
+
+; *** End of Custom Declarations ***
