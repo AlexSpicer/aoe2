@@ -1,0 +1,636 @@
+/* ========== Determine map type ========== */
+#define MAP_SPARSE_FOREST
+
+start_random
+percent_chance 70
+	#define SPAWN_WATER
+percent_chance 30
+	#define SPAWN_WATER_DEEP
+end_random
+
+start_random
+percent_chance 20 #define SPAWN_CLIFFS
+end_random
+start_random
+percent_chance 80 #define SPAWN_EXTRA_RANDOM
+end_random
+
+/* ========== Spawning flags ========== */
+#define SPAWN_BUSHES
+#define SPAWN_BASE_TREES
+#define SPAWN_SECOND_SCOUT_CHANCE
+#define SPAWN_BASE_LONE_TREES
+#define SPAWN_SMALL_GROUPS_RANDOM_TREES
+start_random
+percent_chance 20
+	#define SPAWN_EXTRA_GOLD
+end_random
+#define SPAWN_EXTRA_STONE
+#define SPAWN_PREDATORS
+
+/* ========== Map type logic ========== */
+if MAP_DES
+	#const TERRAIN_BASE_LAND 6 /* Desert */
+	#const TERRAIN_TREE_TYPE 13 /* Palm desert */
+	#const TERRAIN_BEACH 107 /* Darker beach */
+	#const ANIMAL_HERDABLE_1 1060 /* Goat */
+	#const ANIMAL_HERDABLE_2 1060 /* Goat */
+	#const ANIMAL_HUNTABLE_PASSIVE_1 1239 /* Ibex */
+	#const ANIMAL_HUNTABLE_PASSIVE_2 1026 /* Ostrich */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_1 1301 /* Elephant */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_2 1139 /* Rhino */
+	#const ANIMAL_PREDATOR 1135 /* Komodo */
+	#const OBJECT_BERRY_ID 1059 /* Orange bushes */
+	#const OBJECT_BASE_TREE 351
+	#const OBJECT_EXTRA_TREE 351
+elseif MAP_JUN
+	#const TERRAIN_BASE_LAND 60 /* Jungle grass */
+	#const TERRAIN_TREE_TYPE 17 /* Jungle trees */
+	#const TERRAIN_BEACH 53 /* White beach */
+	#const ANIMAL_HERDABLE_1 1142 /* Water buffalo */
+	#const ANIMAL_HERDABLE_2 1142 /* Water buffalo */
+	#const ANIMAL_HUNTABLE_PASSIVE_1 1019 /* Zebra */
+	#const ANIMAL_HUNTABLE_PASSIVE_2 1026 /* Ostrich */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_1 48 /* Boar */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_2 1301 /* Elephant */
+	#const ANIMAL_PREDATOR 1137 /* Tiger */
+	#const OBJECT_BERRY_ID 59 /* Regular bushes */
+	#const OBJECT_BASE_TREE 414
+	#const OBJECT_EXTRA_TREE 414
+elseif MAP_AUTUMN
+	#const TERRAIN_BASE_LAND 5 /* Leaves */
+	#const TERRAIN_TREE_TYPE 10 /* Oak trees */
+	#const TERRAIN_BEACH 2 /* Beach */
+	#const ANIMAL_HERDABLE_1 705 /* Cow */
+	#const ANIMAL_HERDABLE_2 1245 /* Pig */
+	#const ANIMAL_HUNTABLE_PASSIVE_1 65 /* Deer */
+	#const ANIMAL_HUNTABLE_PASSIVE_2 65 /* Deer */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_1 48 /* Boar */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_2 48 /* Boar */
+	#const ANIMAL_PREDATOR 812 /* Jaguar */
+	#const OBJECT_BERRY_ID 59 /* Regular bushes */
+	#const OBJECT_BASE_TREE 349
+	#const OBJECT_EXTRA_TREE 349
+elseif MAP_WINTER
+	#const TERRAIN_BASE_LAND 32 /* Snow */
+	#const TERRAIN_TREE_TYPE 21 /* Snow forest */
+	#const TERRAIN_BEACH 37 /* Icy shore */
+	#define REPLACE_WATER
+	#const TERRAIN_WATER_REPLACEMENT 35 /* Ice */
+	#const ANIMAL_HERDABLE_1 833 /* Turkey */
+	#const ANIMAL_HERDABLE_2 1243 /* Goose */
+	#const ANIMAL_HUNTABLE_PASSIVE_1 65 /* Deer */
+	#const ANIMAL_HUNTABLE_PASSIVE_2 65 /* Deer */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_1 48 /* Boar */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_2 48 /* Boar */
+	#const ANIMAL_PREDATOR 202 /* Rabid wolf */
+	#const OBJECT_BERRY_ID 59 /* Regular bushes */
+	#const OBJECT_BASE_TREE 1250
+	#const OBJECT_EXTRA_TREE 413
+elseif MAP_SPRING
+	#const TERRAIN_BASE_LAND 11 /* Dirt2 */
+	#const TERRAIN_TREE_TYPE 106 /* Dead forest */
+	#const TERRAIN_BEACH 111 /* Muddy shallows */
+	#const ANIMAL_HERDABLE_1 1060 /* Goat */
+	#const ANIMAL_HERDABLE_2 1060 /* Goat */
+	#const ANIMAL_HUNTABLE_PASSIVE_1 65 /* Deer */
+	#const ANIMAL_HUNTABLE_PASSIVE_2 65 /* Deer */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_1 48 /* Boar */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_2 48 /* Boar */
+	#const ANIMAL_PREDATOR 202 /* Rabid wolf */
+	#const OBJECT_BERRY_ID 59 /* Regular bushes */
+	#const OBJECT_BASE_TREE 1250 /* Dead tree */
+	#const OBJECT_EXTRA_TREE 1250 /* Dead tree */
+elseif MAP_SPARSE_FOREST
+	#const TERRAIN_BASE_LAND 12 /* Grass2 */
+	#const TERRAIN_TREE_TYPE 88 /* Mediterranean forest */
+	#const TERRAIN_BEACH 91 /* Reed beach shallows */
+	#define REPLACE_WATER
+	#const TERRAIN_WATER_REPLACEMENT 95 /* Azure water */
+	#const ANIMAL_HERDABLE_1 1060 /* Goat */
+	#const ANIMAL_HERDABLE_2 1060 /* Goat */
+	#const ANIMAL_HUNTABLE_PASSIVE_1 65 /* Deer */
+	#const ANIMAL_HUNTABLE_PASSIVE_2 65 /* Deer */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_1 48 /* Boar */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_2 48 /* Boar */
+	#const ANIMAL_PREDATOR 202 /* Rabid wolf */
+	#const OBJECT_BERRY_ID 59 /* Regular bushes */
+	#const OBJECT_BASE_TREE 1250 /* Dead tree */
+	#const OBJECT_EXTRA_TREE 1250 /* Dead tree */
+else
+	#const TERRAIN_BASE_LAND 0 /* Grass */
+	#const TERRAIN_TREE_TYPE 19 /* Pine forest */
+	#const ANIMAL_HERDABLE_1 594 /* Sheep */
+	#const ANIMAL_HERDABLE_2 705 /* Cow */
+	#const ANIMAL_HUNTABLE_PASSIVE_1 65 /* Deer */
+	#const ANIMAL_HUNTABLE_PASSIVE_2 65 /* Deer */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_1 48 /* Boar */
+	#const ANIMAL_HUNTABLE_AGGRESIVE_2 48 /* Boar */
+	#const ANIMAL_PREDATOR 126 /* Wolf */
+	#const OBJECT_BERRY_ID 59 /* Regular bushes */
+	#const OBJECT_BASE_TREE 350
+	#const OBJECT_EXTRA_TREE 350
+endif
+
+/* ========== Map setup ========== */
+<PLAYER_SETUP>
+grouped_by_team
+weather_type 3 0 0 0
+behavior_version 1
+
+<LAND_GENERATION>
+base_terrain TERRAIN_BASE_LAND
+
+create_player_lands {
+	terrain_type TERRAIN_BASE_LAND
+	land_percent 12
+	base_size 16
+	
+}
+
+if SPAWN_WATER
+	if REPLACE_WATER
+		create_land {
+			terrain_type TERRAIN_WATER_REPLACEMENT
+			base_terrain TERRAIN_BASE_LAND
+			number_of_clumps 1
+			land_percent 10
+			land_position 50 50
+			beach_terrain TERRAIN_BEACH
+			set_avoid_player_start_areas
+		}
+	else
+		create_land {
+			terrain_type WATER
+			base_terrain TERRAIN_BASE_LAND
+			number_of_clumps 1
+			land_percent 10
+			land_position 50 50
+			beach_terrain TERRAIN_BEACH
+			set_avoid_player_start_areas
+		}
+	endif
+elseif SPAWN_WATER_DEEP
+	if REPLACE_WATER
+		create_land {
+			terrain_type TERRAIN_WATER_REPLACEMENT
+			base_terrain TERRAIN_BASE_LAND
+			number_of_clumps 1
+			land_percent 20
+			land_position 50 50
+			beach_terrain TERRAIN_BEACH
+			set_avoid_player_start_areas
+		}
+	else
+		create_land {
+			terrain_type WATER
+			base_terrain TERRAIN_BASE_LAND
+			number_of_clumps 1
+			land_percent 20
+			land_position 50 50
+			beach_terrain TERRAIN_BEACH
+			set_avoid_player_start_areas
+		}
+	endif
+elseif SPAWN_CENTRE_FOREST
+	create_land {
+		terrain_type TERRAIN_TREE_TYPE
+		base_terrain TERRAIN_BASE_LAND
+		number_of_clumps 1
+		set_tight_grouping
+		land_percent 8
+		land_position 50 50
+		set_avoid_player_start_areas
+	}
+endif
+
+
+if SPAWN_CLIFFS
+	<CLIFF_GENERATION>
+	min_number_of_cliffs 8
+	max_number_of_cliffs 12
+	min_length_of_cliff 6
+	max_length_of_cliff 10
+	cliff_curliness 25
+endif
+
+<TERRAIN_GENERATION>
+
+create_terrain TERRAIN_TREE_TYPE {
+	base_terrain TERRAIN_BASE_LAND
+	number_of_clumps 8
+	land_percent 25
+	set_avoid_player_start_areas
+	spacing_to_other_terrain_types 3
+	set_scale_by_groups
+}
+
+<OBJECTS_GENERATION>
+create_object VILLAGER {
+	set_place_for_every_player
+	min_distance_to_players 6
+	max_distance_to_players 6
+}
+
+/* KOTH */
+#const MONUMENT_RESOURCES 1639
+
+if KING_OT_HILL
+	create_object MONUMENT_RESOURCES {
+		number_of_objects 1
+		set_place_for_every_player
+		min_distance_to_players 0
+		max_distance_to_players 0
+	}
+endif
+/* KOTH - end */
+
+create_object SCOUT {
+	if SPAWN_SECOND_SCOUT_CHANCE
+		start_random
+		percent_chance 75
+			number_of_objects 1
+		percent_chance 25
+			number_of_objects 2
+		end_random
+	else
+		number_of_objects 1
+	endif
+	set_place_for_every_player
+	min_distance_to_players 5
+	max_distance_to_players 8
+ }
+
+create_object TOWN_CENTER {
+	set_place_for_every_player
+	min_distance_to_players 0
+	max_distance_to_players 0
+	second_object ANIMAL_HERDABLE_1
+}
+
+if SPAWN_EXTRA_RANDOM
+	start_random
+		percent_chance 20
+			if REGICIDE
+			else
+				create_object CASTLE {
+					set_place_for_every_player
+					min_distance_to_players 10
+					max_distance_to_players 10
+				}
+			endif
+		percent_chance 20
+			create_object WALL {
+				set_place_for_every_player
+				min_distance_to_players 22
+				max_distance_to_players 22
+			}
+		percent_chance 20
+			create_object BARRACKS {
+				set_place_for_every_player
+				min_distance_to_players 10
+				max_distance_to_players 10
+			}
+			create_object WATCH_TOWER {
+				set_place_for_every_player
+				min_distance_to_players 8
+				max_distance_to_players 8
+			}
+		percent_chance 20
+			create_object HOUSE {
+				set_place_for_every_player
+				min_distance_to_players 10
+				max_distance_to_players 10
+			}
+			create_object WATCH_TOWER {
+				set_place_for_every_player
+				min_distance_to_players 8
+				max_distance_to_players 8
+			}
+		percent_chance 20
+			create_object HOUSE {
+				set_place_for_every_player
+				min_distance_to_players 8
+				max_distance_to_players 8
+			}
+	end_random
+endif
+ 
+/* SPECIAL STUFF FOR REGICIDE */
+/* FORTRESS AND MIGRATION NEED TO BE UPDATED */
+
+if REGICIDE
+	create_object VILLAGER {
+		number_of_objects 7
+		set_place_for_every_player
+		min_distance_to_players 6
+		max_distance_to_players 6
+	}
+	create_object KING {
+		set_place_for_every_player
+		min_distance_to_players 6
+		max_distance_to_players 6
+	}
+	create_object CASTLE {
+		set_place_for_every_player
+		min_distance_to_players 10
+		max_distance_to_players 10
+	}
+endif
+
+create_object ANIMAL_HERDABLE_1 {
+	number_of_groups rnd(1,2)
+	number_of_objects 3
+	group_variance 1
+	temp_min_distance_group_placement 12
+	set_place_for_every_player
+	min_distance_to_players 12
+	max_distance_to_players 16
+	set_gaia_object_only
+}
+
+create_object ANIMAL_HERDABLE_2 {
+	number_of_groups 1
+	number_of_objects 3
+	group_variance 1
+	temp_min_distance_group_placement 12
+	set_place_for_every_player
+	min_distance_to_players 12
+	max_distance_to_players 16
+	set_gaia_object_only
+}
+
+create_object ANIMAL_HUNTABLE_PASSIVE_1 {
+	number_of_groups 1
+	number_of_objects rnd(2,6)
+	temp_min_distance_group_placement 6
+	set_place_for_every_player
+	min_distance_to_players 8
+	max_distance_to_players 16
+	set_gaia_object_only
+}
+
+create_object ANIMAL_HUNTABLE_PASSIVE_2 {
+	number_of_groups 1
+	number_of_objects rnd(2,6)
+	temp_min_distance_group_placement 6
+	set_place_for_every_player
+	min_distance_to_players 8
+	max_distance_to_players 16
+	set_gaia_object_only
+}
+
+create_object ANIMAL_HUNTABLE_AGGRESIVE_1 {
+	number_of_groups rnd(1,2)
+	number_of_objects rnd(2,4)
+	temp_min_distance_group_placement 12
+	set_place_for_every_player
+	min_distance_to_players 12
+	max_distance_to_players 20
+	set_gaia_object_only
+}
+
+create_object ANIMAL_HUNTABLE_AGGRESIVE_2 {
+	number_of_objects rnd(2,4)
+	temp_min_distance_group_placement 16
+	set_place_for_every_player
+	min_distance_to_players 20
+	max_distance_to_players 32
+	set_gaia_object_only
+}
+
+if SPAWN_BASE_LONE_TREES
+	create_object OBJECT_BASE_TREE {
+		number_of_objects 6
+		min_distance_to_players 4
+		max_distance_to_players 6
+		set_place_for_every_player
+		set_gaia_object_only
+	}
+endif
+
+create_object OBJECT_BERRY_ID {
+	number_of_groups 1
+	number_of_objects 6
+	group_variance 1
+	set_place_for_every_player
+	set_gaia_object_only
+	min_distance_to_players 5
+	find_closest
+	set_tight_grouping
+	base_terrain TERRAIN_BASE_LAND
+}
+
+if SPAWN_SMALL_GROUPS_RANDOM_TREES
+	create_object OBJECT_EXTRA_TREE {
+		set_scaling_to_map_size
+		number_of_groups rnd(8,12)
+		number_of_objects 13
+		group_variance 3
+		set_loose_grouping
+		set_gaia_object_only
+		min_distance_to_players 24
+	}
+endif
+
+/* Close single starter gold */
+create_object GOLD {
+	base_terrain TERRAIN_BASE_LAND
+	number_of_groups 1
+	number_of_objects 5
+	min_distance_to_players 8
+	find_closest
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+}
+
+/* Medium proximity gold */
+create_object GOLD {
+	set_circular_placement
+	base_terrain TERRAIN_BASE_LAND
+	number_of_groups 1
+	number_of_objects 5
+	min_distance_to_players 14
+	max_distance_to_players 18
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+	avoid_forest_zone 2
+}
+
+/* Far proximity gold */
+create_object GOLD {
+	set_circular_placement
+	base_terrain TERRAIN_BASE_LAND
+	number_of_groups 1
+	number_of_objects 5
+	min_distance_to_players 20
+	max_distance_to_players 24
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+	avoid_forest_zone 2
+}
+
+/* Close single starter stone */
+create_object STONE {
+	set_circular_placement
+	base_terrain TERRAIN_BASE_LAND
+	number_of_groups 1
+	number_of_objects 5
+	min_distance_to_players 12
+	find_closest
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+	temp_min_distance_group_placement 4
+}
+
+/* Medium proximity stone */
+create_object STONE {
+	set_circular_placement
+	base_terrain TERRAIN_BASE_LAND
+	number_of_groups 1
+	number_of_objects 6
+	min_distance_to_players 18
+	max_distance_to_players 20
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+	temp_min_distance_group_placement 4
+	avoid_forest_zone 2
+}
+
+/* Far proximity stone */
+create_object STONE {
+	set_circular_placement
+	base_terrain TERRAIN_BASE_LAND
+	number_of_groups 1
+	number_of_objects 5
+	min_distance_to_players 24
+	max_distance_to_players 26
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+	temp_min_distance_group_placement 4
+	avoid_forest_zone 2
+}
+
+if SPAWN_EXTRA_GOLD
+/* Extra gold */
+	create_object GOLD {
+		base_terrain TERRAIN_BASE_LAND
+		set_scaling_to_map_size
+		number_of_groups 2
+		number_of_objects 8
+		min_distance_to_players 35
+		set_gaia_object_only
+		set_tight_grouping
+		temp_min_distance_group_placement 35
+		avoid_forest_zone 4
+	}
+endif
+
+if SPAWN_EXTRA_STONE
+/* Extra stone */
+	create_object STONE {
+		base_terrain TERRAIN_BASE_LAND
+		set_scaling_to_map_size
+		number_of_groups 2
+		number_of_objects 8
+		min_distance_to_players 35
+		set_gaia_object_only
+		set_tight_grouping
+		temp_min_distance_group_placement 35
+		avoid_forest_zone 4
+	}
+endif
+
+create_object RELIC {
+	base_terrain TERRAIN_BASE_LAND
+	if 1_PLAYER_GAME
+		number_of_objects 1
+	elseif 2_PLAYER_GAME
+		number_of_objects 2
+	elseif 3_PLAYER_GAME
+		number_of_objects 4
+	elseif 4_PLAYER_GAME
+		number_of_objects 4
+	elseif 5_PLAYER_GAME
+		number_of_objects 6
+	elseif 6_PLAYER_GAME
+		number_of_objects 6
+	elseif 7_PLAYER_GAME
+		number_of_objects 8
+	elseif 8_PLAYER_GAME
+		number_of_objects 8
+	endif
+	set_gaia_object_only
+	min_distance_to_players 24
+	temp_min_distance_group_placement 50
+}
+
+if SPAWN_PREDATORS
+	create_object ANIMAL_PREDATOR {
+		base_terrain TERRAIN_BASE_LAND
+		number_of_objects 2
+		set_place_for_every_player
+		set_gaia_object_only
+		min_distance_to_players 20
+		max_distance_to_players 30
+		temp_min_distance_group_placement 20
+	}
+endif
+
+if SPAWN_WATER
+	create_object SALMON {
+		base_terrain WATER
+		number_of_objects rnd(1,2)
+		set_scaling_to_map_size
+		set_gaia_object_only
+	}
+	create_object TUNA {
+		base_terrain WATER
+		number_of_objects rnd(1,2)
+		set_scaling_to_map_size
+		set_gaia_object_only
+	}
+	create_object SNAPPER {
+		base_terrain WATER
+		number_of_objects rnd(1,2)
+		set_scaling_to_map_size
+		set_gaia_object_only
+	}
+	create_object SHORE_FISH {
+			base_terrain WATER
+		number_of_objects rnd(1,2)
+		set_scaling_to_map_size
+		set_gaia_object_only
+		}
+elseif SPAWN_WATER_DEEP
+	create_object SALMON {
+		base_terrain WATER
+		number_of_objects rnd(3,4)
+		set_scaling_to_map_size
+		set_gaia_object_only
+	}
+	create_object TUNA {
+		base_terrain WATER
+		number_of_objects rnd(3,4)
+		set_scaling_to_map_size
+		set_gaia_object_only
+	}
+	create_object SNAPPER {
+		base_terrain WATER
+		number_of_objects rnd(3,4)
+		set_scaling_to_map_size
+		set_gaia_object_only
+	}
+	create_object SHORE_FISH {
+		base_terrain WATER
+		number_of_objects rnd(4,10)
+		set_scaling_to_map_size
+		set_gaia_object_only
+	}
+endif

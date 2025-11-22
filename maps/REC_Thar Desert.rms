@@ -1,0 +1,341 @@
+<PLAYER_SETUP>
+grouped_by_team
+weather_type 3 0 0 0
+
+
+<LAND_GENERATION>
+base_terrain DESERT
+
+create_player_lands {
+	terrain_type DESERT
+	;land_percent 8
+	base_size 12
+}
+
+create_land {
+	terrain_type WATER
+	base_terrain DESERT
+	number_of_clumps 1
+	number_of_tiles 2000
+	set_scale_by_size
+	land_position 50 50
+	beach_terrain DLC_WETROCKBEACH
+}
+
+<TERRAIN_GENERATION>
+create_terrain PALM_DESERT {
+	base_terrain DESERT
+	number_of_clumps 8
+	land_percent 25
+	set_avoid_player_start_areas
+	set_scale_by_groups
+}
+
+<OBJECTS_GENERATION>
+create_object VILLAGER {
+	set_place_for_every_player
+	min_distance_to_players 6
+	max_distance_to_players 6
+}
+
+/* KOTH */
+#const MONUMENT_RESOURCES 1639
+
+if KING_OT_HILL
+	create_object MONUMENT_RESOURCES {
+		number_of_objects 1
+		set_place_for_every_player
+		min_distance_to_players 0
+		max_distance_to_players 0
+	}
+endif
+/* KOTH - end */
+
+create_object SCOUT {
+	start_random
+	percent_chance 75
+		number_of_objects 1
+	percent_chance 25
+		number_of_objects 2
+	end_random
+	set_place_for_every_player
+	min_distance_to_players 5
+	max_distance_to_players 8
+ }
+
+create_object TOWN_CENTER {
+	set_place_for_every_player
+	min_distance_to_players 0
+	max_distance_to_players 0
+	second_object DLC_GOAT
+}
+
+start_random
+	percent_chance 20
+		create_object CASTLE {
+			set_place_for_every_player
+			min_distance_to_players 10
+			max_distance_to_players 10
+		}
+	percent_chance 20
+		create_object WALL {
+			set_place_for_every_player
+			min_distance_to_players 22
+			max_distance_to_players 22
+		}
+		create_object HOUSE {
+			set_place_for_every_player
+			min_distance_to_players 8
+			max_distance_to_players 8
+		}
+	percent_chance 20
+		create_object BARRACKS {
+			set_place_for_every_player
+			min_distance_to_players 10
+			max_distance_to_players 10
+		}
+		create_object WATCH_TOWER {
+			set_place_for_every_player
+			min_distance_to_players 8
+			max_distance_to_players 8
+		}
+		create_object HOUSE {
+			set_place_for_every_player
+			min_distance_to_players 8
+			max_distance_to_players 8
+		}
+	percent_chance 20
+		create_object HOUSE {
+			set_place_for_every_player
+			min_distance_to_players 8
+			max_distance_to_players 8
+		}
+		create_object HOUSE {
+			set_place_for_every_player
+			min_distance_to_players 8
+			max_distance_to_players 8
+		}
+end_random
+ 
+/* SPECIAL STUFF FOR REGICIDE */
+/* FORTRESS AND MIGRATION NEED TO BE UPDATED */
+
+if REGICIDE
+	create_object VILLAGER {
+		number_of_objects 7
+		set_place_for_every_player
+		min_distance_to_players 6
+		max_distance_to_players 6
+	}
+	create_object KING {
+		set_place_for_every_player
+		min_distance_to_players 6
+		max_distance_to_players 6
+	}
+	create_object CASTLE {
+		set_place_for_every_player
+		min_distance_to_players 10
+		max_distance_to_players 10
+	}
+endif
+
+create_object DLC_GOAT {
+	number_of_groups rnd(1,2)
+	number_of_objects 3
+	group_variance 1
+	temp_min_distance_group_placement 12
+	set_place_for_every_player
+	min_distance_to_players 12
+	max_distance_to_players 16
+	set_gaia_object_only
+}
+
+create_object DLC_IBEX {
+	number_of_groups 1
+	number_of_objects rnd(2,6)
+	temp_min_distance_group_placement 6
+	set_place_for_every_player
+	min_distance_to_players 8
+	max_distance_to_players 16
+	set_gaia_object_only
+}
+
+create_object DLC_RHINO {
+	number_of_groups rnd(1,2)
+	number_of_objects rnd(2,4)
+	temp_min_distance_group_placement 12
+	set_place_for_every_player
+	min_distance_to_players 12
+	max_distance_to_players 20
+	set_gaia_object_only
+}
+
+create_object DLC_ELEPHANT {
+	number_of_objects rnd(1,4)
+	temp_min_distance_group_placement 16
+	set_place_for_every_player
+	min_distance_to_players 24
+	max_distance_to_players 36
+	set_gaia_object_only
+}
+
+create_object BAMBOO_TREE {
+	number_of_objects 4
+	min_distance_to_players 4
+	max_distance_to_players 6
+	set_place_for_every_player
+	set_gaia_object_only
+}
+
+create_object DLC_ORANGEBUSH {
+	number_of_groups 1
+	number_of_objects 7
+	group_variance 2
+	set_place_for_every_player
+	set_gaia_object_only
+	min_distance_to_players 6
+	find_closest
+	set_tight_grouping
+	base_terrain DESERT
+}
+
+create_object ITALIAN_PINETREE {
+	set_scaling_to_map_size
+	number_of_groups rnd(6,10)
+	number_of_objects 8
+	group_variance 3
+	set_loose_grouping
+	set_gaia_object_only
+	min_distance_to_players 24
+}
+
+/* Close single starter gold */
+create_object GOLD {
+	base_terrain DESERT
+	number_of_groups 1
+	number_of_objects 5
+	min_distance_to_players 8
+	find_closest
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+}
+
+/* Medium proximity gold */
+create_object GOLD {
+	set_circular_placement
+	base_terrain DESERT
+	number_of_groups 1
+	number_of_objects 5
+	min_distance_to_players 14
+	max_distance_to_players 18
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+	avoid_forest_zone 2
+}
+
+/* Far proximity gold */
+create_object GOLD {
+	set_circular_placement
+	base_terrain DESERT
+	number_of_groups 1
+	number_of_objects 5
+	min_distance_to_players 20
+	max_distance_to_players 24
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+	avoid_forest_zone 2
+}
+
+/* Close single starter stone */
+create_object STONE {
+	set_circular_placement
+	base_terrain DESERT
+	number_of_groups 1
+	number_of_objects 6
+	min_distance_to_players 12
+	find_closest
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+	temp_min_distance_group_placement 4
+}
+
+/* Medium proximity stone */
+create_object STONE {
+	set_circular_placement
+	base_terrain DESERT
+	number_of_groups 1
+	number_of_objects 6
+	min_distance_to_players 18
+	max_distance_to_players 20
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+	temp_min_distance_group_placement 4
+	avoid_forest_zone 2
+}
+
+/* Far proximity stone */
+create_object STONE {
+	set_circular_placement
+	base_terrain DESERT
+	number_of_groups 1
+	number_of_objects 5
+	min_distance_to_players 24
+	max_distance_to_players 26
+	set_gaia_object_only
+	set_place_for_every_player
+	set_tight_grouping
+	temp_min_distance_group_placement 4
+	avoid_forest_zone 2
+}
+
+/* Extra stone */
+create_object STONE {
+	base_terrain DESERT
+	set_scaling_to_map_size
+	number_of_groups 2
+	number_of_objects 8
+	min_distance_to_players 30
+	set_gaia_object_only
+	set_tight_grouping
+	temp_min_distance_group_placement 4
+	avoid_forest_zone 4
+}
+
+create_object RELIC {
+	base_terrain DESERT
+	if 1_PLAYER_GAME
+		number_of_objects 2
+	elseif 2_PLAYER_GAME
+		number_of_objects 4
+	elseif 3_PLAYER_GAME
+		number_of_objects 6
+	elseif 4_PLAYER_GAME
+		number_of_objects 8
+	elseif 5_PLAYER_GAME
+		number_of_objects 9
+	elseif 6_PLAYER_GAME
+		number_of_objects 10
+	elseif 7_PLAYER_GAME
+		number_of_objects 11
+	elseif 8_PLAYER_GAME
+		number_of_objects 12
+	endif
+	set_gaia_object_only
+	min_distance_to_players 24
+	temp_min_distance_group_placement 50
+}
+
+create_object DLC_TIGER {
+	base_terrain DESERT
+	number_of_objects 2
+	set_place_for_every_player
+	set_gaia_object_only
+	min_distance_to_players 20
+	max_distance_to_players 30
+	temp_min_distance_group_placement 20
+}
