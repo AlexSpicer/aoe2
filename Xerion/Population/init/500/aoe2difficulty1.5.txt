@@ -1,0 +1,27 @@
+; Multiplier = 1.5
+#load-if-defined DIFFICULTY-EASIEST
+	(defconst max-trade-pop 18)
+	(defconst max-civ 60)
+#end-if
+#load-if-defined DIFFICULTY-EASY
+	(defconst max-trade-pop 36)
+	(defconst max-civ 120)
+#end-if
+#load-if-defined DIFFICULTY-MODERATE
+	(defconst max-trade-pop 54)
+	(defconst max-civ 180)
+#end-if
+#load-if-defined DIFFICULTY-HARD
+	(defconst max-trade-pop 72)
+	(defconst max-civ 240)
+#end-if
+#load-if-defined DIFFICULTY-HARDEST
+	(defconst max-trade-pop 90)
+	(defconst max-civ 300)
+#end-if
+#load-if-defined DIFFICULTY-EXTREME
+	(defconst max-trade-pop 108)
+	(defconst max-civ 360)
+#end-if
+(defconst max-civ-pop 480)
+(defconst del-civ-pop 487)

@@ -1,0 +1,32 @@
+(defconst difficulty-level 2)
+(defconst minNavy 14)
+(defconst max-fleet 105)
+
+; Multiplier = 0.7
+#load-if-defined DIFFICULTY-EASIEST
+	(defconst max-trade-pop 25)
+	(defconst max-civ 80)
+#end-if
+#load-if-defined DIFFICULTY-EASY
+	(defconst max-trade-pop 30)
+	(defconst max-civ 100)
+#end-if
+#load-if-defined DIFFICULTY-MODERATE
+	(defconst max-trade-pop 35)
+	(defconst max-civ 120)
+#end-if
+#load-if-defined DIFFICULTY-HARD
+	(defconst max-trade-pop 40)
+	(defconst max-civ 140)
+#end-if
+#load-if-defined DIFFICULTY-HARDEST
+	(defconst max-trade-pop 45)
+	(defconst max-civ 160)
+#end-if
+#load-if-defined DIFFICULTY-EXTREME
+	(defconst max-trade-pop 40)
+	(defconst max-civ 180)
+#end-if
+(defconst max-civ-pop 225)
+(defconst del-civ-pop 230)
+(

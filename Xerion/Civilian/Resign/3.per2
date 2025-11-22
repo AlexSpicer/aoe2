@@ -1,0 +1,2 @@
+(defconst resignChat 3)
+;(chat-to-all "Enough of your douchebaggery!")
